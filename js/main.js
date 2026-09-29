@@ -82,7 +82,7 @@
   });
 
   /* ---------- Pachet + blat -> preț ---------- */
-  var state = { price: 4990, old: 5790, name: 'Grătar Bear Grills', wood: 'Stejar natural' };
+  var state = { price: 1950, old: 2290, name: 'Grătar Bear Grills', wood: 'Stejar natural' };
   function renderPrice() {
     $$('[data-price-now]').forEach(function (el) { el.textContent = formatLei(state.price); });
     $$('[data-price-old]').forEach(function (el) { el.textContent = formatLei(state.old); });
