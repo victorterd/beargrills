@@ -4,122 +4,324 @@
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <title>Grătar Bear Grills — Masă de grătar cu plită din oțel</title>
-  <meta name="description" content="Grătar Bear Grills: masă de grătar cu plită din oțel și blat din lemn masiv. Produs în România, livrare rapidă în toată țara.">
-  <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <meta name="description" content="Grătar Bear Grills: masă de grătar tip plancha cu plită din oțel și blat din lemn masiv. Produs în România, livrare rapidă în toată țara.">
+  <meta name="theme-color" content="#141312">
+  <link rel="preload" href="assets/fonts/anton-latin-400-normal.woff2" as="font" type="font/woff2" crossorigin>
+  <link rel="preload" href="assets/fonts/inter-latin-wght-normal.woff2" as="font" type="font/woff2" crossorigin>
   <link rel="stylesheet" href="css/style.css">
 </head>
 <body>
 
-  <div class="announcement">Livrare gratuită în toată România · Plata la livrare</div>
+  <!-- ============ ANUNȚ + TICKER ============ -->
+  <div class="announce">
+    <button class="announce__arrow" data-announce="-1" aria-label="Mesajul anterior">
+      <svg viewBox="0 0 24 24"><path d="M15 6l-6 6 6 6"/></svg>
+    </button>
+    <div class="announce__track" aria-live="polite">
+      <p class="announce__msg is-active">Ofertă de lansare <span class="announce__pill">-14%</span></p>
+      <p class="announce__msg">Livrare gratuită în toată România</p>
+      <p class="announce__msg">Plata la livrare sau cu cardul</p>
+    </div>
+    <button class="announce__arrow" data-announce="1" aria-label="Mesajul următor">
+      <svg viewBox="0 0 24 24"><path d="M9 6l6 6-6 6"/></svg>
+    </button>
+  </div>
 
+  <div class="ticker" aria-hidden="true">
+    <div class="ticker__track">
+      <span>Produs în România</span><i>✦</i>
+      <span>Livrare în 2–4 zile</span><i>✦</i>
+      <span>Garanție 5 ani</span><i>✦</i>
+      <span>30 zile retur</span><i>✦</i>
+      <span>Oțel de 8 mm</span><i>✦</i>
+      <span>Produs în România</span><i>✦</i>
+      <span>Livrare în 2–4 zile</span><i>✦</i>
+      <span>Garanție 5 ani</span><i>✦</i>
+      <span>30 zile retur</span><i>✦</i>
+      <span>Oțel de 8 mm</span><i>✦</i>
+    </div>
+  </div>
+
+  <!-- ============ HEADER ============ -->
   <header class="header">
     <div class="container header__inner">
-      <a href="#" class="logo" aria-label="Bear Grills">BEAR<span>GRILLS</span></a>
-      <nav class="nav">
+      <button class="icon-btn header__menu" id="menu-toggle" aria-label="Meniu" aria-expanded="false" aria-controls="drawer">
+        <svg viewBox="0 0 24 24"><path d="M4 7h16M4 12h16M4 17h16"/></svg>
+      </button>
+      <nav class="header__nav header__nav--left">
         <a href="#despre">Despre</a>
         <a href="#specificatii">Specificații</a>
+      </nav>
+      <a href="#" class="logo" aria-label="Bear Grills — acasă">
+        <img src="assets/images/logo-bear.svg" alt="" width="30" height="30">
+        <span>BEAR<b>GRILLS</b></span>
+      </a>
+      <nav class="header__nav header__nav--right">
         <a href="#recenzii">Recenzii</a>
         <a href="#intrebari">Întrebări</a>
       </nav>
-      <a href="#comanda" class="header__cta">Comandă</a>
+      <a href="#comanda" class="icon-btn header__cart" aria-label="Coș">
+        <svg viewBox="0 0 24 24"><path d="M6 8h12l-1 12H7L6 8z"/><path d="M9 8V6a3 3 0 016 0v2"/></svg>
+        <span class="cart-count" id="cart-count" hidden>0</span>
+      </a>
     </div>
+    <nav class="drawer" id="drawer" hidden>
+      <a href="#despre">Despre produs</a>
+      <a href="#specificatii">Specificații</a>
+      <a href="#recenzii">Recenzii</a>
+      <a href="#intrebari">Întrebări frecvente</a>
+    </nav>
   </header>
 
   <main>
 
-    <!-- HERO -->
-    <section class="hero container">
+    <!-- ============ PRODUS ============ -->
+    <section class="product container" id="comanda">
+
+      <!-- Galerie -->
       <div class="gallery">
-        <div class="gallery__main">
-          <img id="gallery-main" src="assets/images/gratar-hero.webp" alt="Grătarul Bear Grills pe o terasă, cu blat din lemn și plită din oțel" width="1672" height="941" fetchpriority="high">
-        </div>
-        <!-- Adaugă aici mai multe poze; primul thumb e cel activ -->
-        <div class="gallery__thumbs">
-          <button class="thumb is-active" data-src="assets/images/gratar-hero.webp" aria-label="Imaginea 1">
-            <img src="assets/images/gratar-hero.webp" alt="">
+        <div class="gallery__stage">
+          <!-- Poze: adaugă câte un .slide nou. data-zoom e doar pentru detaliile decupate din poza principală. -->
+          <div class="gallery__slides" id="slides">
+            <figure class="slide is-active">
+              <img src="assets/images/gratar-hero.webp" alt="Grătarul Bear Grills pe o terasă, cu blat din lemn și plită din oțel" width="1672" height="941" fetchpriority="high">
+            </figure>
+            <figure class="slide" data-zoom>
+              <img src="assets/images/gratar-hero.webp" alt="Detaliu: plita din oțel cu inelul pentru wok" style="--zoom:2.1; --ox:50%; --oy:36%;" loading="lazy">
+            </figure>
+            <figure class="slide" data-zoom>
+              <img src="assets/images/gratar-hero.webp" alt="Detaliu: logo-ul Bear Grills gravat pe corpul din oțel" style="--zoom:2.6; --ox:51%; --oy:66%;" loading="lazy">
+            </figure>
+          </div>
+
+          <ul class="benefits" aria-label="Beneficii">
+            <li>
+              <svg viewBox="0 0 24 24"><path d="M12 3c1 3 4 4.5 4 8.5a4 4 0 01-8 0c0-1.6.8-2.7 1.6-3.6.2 1.4 1 2.1 1.9 2.1-.6-2.7-.3-5 .5-7z"/><path d="M5 21h14"/></svg>
+              <span>Căldură uniformă</span>
+            </li>
+            <li>
+              <svg viewBox="0 0 24 24"><circle cx="9" cy="8" r="3"/><circle cx="17" cy="9" r="2.4"/><path d="M3 20c0-3.3 2.7-6 6-6s6 2.7 6 6M15 14.2c.6-.2 1.3-.2 2-.2 2.8 0 4 2 4 4.5"/></svg>
+              <span>Loc pentru 8 persoane</span>
+            </li>
+            <li>
+              <svg viewBox="0 0 24 24"><path d="M12 3l8 3v6c0 4.5-3.4 8-8 9-4.6-1-8-4.5-8-9V6z"/><path d="M8.5 12l2.5 2.5 4.5-5"/></svg>
+              <span>Garanție 5 ani</span>
+            </li>
+          </ul>
+
+          <button class="gallery__arrow gallery__arrow--prev" data-slide="-1" aria-label="Poza anterioară">
+            <svg viewBox="0 0 24 24"><path d="M15 6l-6 6 6 6"/></svg>
+          </button>
+          <button class="gallery__arrow gallery__arrow--next" data-slide="1" aria-label="Poza următoare">
+            <svg viewBox="0 0 24 24"><path d="M9 6l6 6-6 6"/></svg>
           </button>
         </div>
+        <div class="gallery__thumbs" id="thumbs"></div>
       </div>
 
-      <div class="buy" id="comanda">
+      <!-- Cumpărare -->
+      <div class="buy">
+        <p class="authority">
+          <svg class="laurel" viewBox="0 0 24 24" aria-hidden="true"><path d="M14 3c-5 2-8 6-8 11 0 3 1.5 5.5 4 7M7 8c-1.8-.3-3-1.3-3.4-3 1.8 0 3 .8 3.4 3zM6 12c-1.8.1-3.2-.6-4-2.2 1.8-.3 3.2.4 4 2.2zM6.4 16c-1.7.6-3.2.2-4.3-1.1 1.7-.7 3.2-.4 4.3 1.1z"/></svg>
+          <span><b>Produs în România</b> <span class="sep">|</span> <u>Recomandat de bucătari</u></span>
+          <svg class="laurel laurel--r" viewBox="0 0 24 24" aria-hidden="true"><path d="M14 3c-5 2-8 6-8 11 0 3 1.5 5.5 4 7M7 8c-1.8-.3-3-1.3-3.4-3 1.8 0 3 .8 3.4 3zM6 12c-1.8.1-3.2-.6-4-2.2 1.8-.3 3.2.4 4 2.2zM6.4 16c-1.7.6-3.2.2-4.3-1.1 1.7-.7 3.2-.4 4.3 1.1z"/></svg>
+        </p>
+
+        <h1 class="title">Grătar Bear Grills</h1>
+        <p class="subtitle">Pentru <b>serile lungi pe terasă</b> și <b>mesele cu toată gașca</b>. Gătești, servești și stai la masă — în jurul focului.</p>
+
+        <div class="chips">
+          <span class="chip chip--dark">
+            <svg viewBox="0 0 24 24"><rect x="3" y="7" width="18" height="4" rx="1"/><path d="M6 11v9M18 11v9M10 4h4"/></svg>
+            Plită oțel 8 mm
+          </span>
+          <span class="chip chip--gold">
+            <svg viewBox="0 0 24 24"><path d="M4 21V4M4 4h10l-1.5 3L14 10H4"/></svg>
+            Fabricat manual în RO
+          </span>
+        </div>
+
         <a href="#recenzii" class="rating">
-          <span class="stars" aria-hidden="true">★★★★★</span>
-          <span><strong>4.9/5</strong> · 128 recenzii</span>
+          <span class="rating__faces" aria-hidden="true">
+            <span style="--c:#c98f4a">A</span><span style="--c:#6d7f5e">I</span><span style="--c:#8a5a44">M</span>
+          </span>
+          <span>Excelent <b>4.9</b></span>
+          <span class="stars stars--box" aria-label="4.9 din 5 stele"><i></i><i></i><i></i><i></i><i></i></span>
+          <span class="rating__count">128 recenzii</span>
         </a>
 
-        <h1 class="buy__title">Grătar Bear Grills</h1>
-        <p class="buy__subtitle">Masă de grătar cu plită din oțel și blat din lemn masiv. Gătești, servești și stai la masă — în același loc.</p>
+        <hr class="divider">
 
-        <div class="price">
-          <span class="price__now">4.990 lei</span>
-          <span class="price__old">5.790 lei</span>
-          <span class="price__tag">-14%</span>
+        <!-- Pas 1: pachet -->
+        <fieldset class="step">
+          <legend class="step__title"><span class="step__num">1</span> Alege <b>pachetul</b></legend>
+          <div class="bundles">
+            <label class="bundle">
+              <input type="radio" name="bundle" value="standard" data-price="4990" data-old="5790" data-name="Grătar Bear Grills" checked>
+              <span class="bundle__card">
+                <span class="bundle__img"><img src="assets/images/gratar-hero.webp" alt=""></span>
+                <span class="bundle__name">Standard</span>
+                <span class="bundle__desc">Grătar + spatulă</span>
+              </span>
+              <span class="bundle__price">4.990 lei</span>
+            </label>
+            <label class="bundle">
+              <input type="radio" name="bundle" value="chef" data-price="5290" data-old="6490" data-name="Grătar + Kit Chef">
+              <span class="bundle__tag">POPULAR</span>
+              <span class="bundle__card">
+                <span class="bundle__img"><img src="assets/images/gratar-hero.webp" alt=""><em>+4</em></span>
+                <span class="bundle__name">Kit Chef</span>
+                <span class="bundle__desc">+ clește, perie, husă</span>
+              </span>
+              <span class="bundle__price">5.290 lei</span>
+            </label>
+            <label class="bundle">
+              <input type="radio" name="bundle" value="complet" data-price="5690" data-old="7290" data-name="Pachet Complet">
+              <span class="bundle__tag bundle__tag--gold">CEA MAI BUNĂ OFERTĂ</span>
+              <span class="bundle__card">
+                <span class="bundle__img"><img src="assets/images/gratar-hero.webp" alt=""><em>+7</em></span>
+                <span class="bundle__name">Complet</span>
+                <span class="bundle__desc">+ ceaun & wok fontă</span>
+              </span>
+              <span class="bundle__price">5.690 lei</span>
+            </label>
+          </div>
+        </fieldset>
+
+        <!-- Pas 2: blat -->
+        <fieldset class="step">
+          <legend class="step__title"><span class="step__num">2</span> Alege <b>blatul:</b> <span id="wood-name">Stejar natural</span></legend>
+          <div class="woods">
+            <label class="wood">
+              <input type="radio" name="wood" value="Stejar natural" checked>
+              <span class="wood__swatch" style="--w1:#d9a86c; --w2:#b98147"></span>
+              <span class="wood__label">Stejar natural</span>
+            </label>
+            <label class="wood">
+              <input type="radio" name="wood" value="Nuc">
+              <span class="wood__swatch" style="--w1:#8a5a3a; --w2:#5e3a24"></span>
+              <span class="wood__label">Nuc</span>
+            </label>
+            <label class="wood">
+              <input type="radio" name="wood" value="Negru ars">
+              <span class="wood__swatch" style="--w1:#3a3430; --w2:#1c1918"></span>
+              <span class="wood__label">Negru ars</span>
+            </label>
+          </div>
+        </fieldset>
+
+        <p class="dispatch"><span class="dot"></span> <span>Expediat în 24h · Ajunge până <b id="eta">joi, 2 octombrie</b></span></p>
+
+        <button type="button" class="buy-btn" id="buy-button" data-order>
+          <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M3 4h2l2.2 10.2a1 1 0 001 .8h8.9a1 1 0 001-.8L20 7H6.2"/><circle cx="9" cy="19" r="1.4"/><circle cx="17" cy="19" r="1.4"/></svg>
+          <span>Comandă acum — <b data-price-now>4.990 lei</b></span>
+          <s data-price-old>5.790 lei</s>
+        </button>
+
+        <div class="payments" aria-label="Metode de plată">
+          <span class="pay pay--mc" title="Mastercard"><i></i><i></i></span>
+          <span class="pay pay--visa" title="Visa">VISA</span>
+          <span class="pay pay--apple" title="Apple Pay"><svg viewBox="0 0 24 24"><path d="M16.4 12.6c0-2.3 1.9-3.4 2-3.5-1.1-1.6-2.8-1.8-3.4-1.8-1.4-.1-2.8.9-3.5.9s-1.8-.8-3-.8C7 7.4 5.5 8.3 4.7 9.8c-1.7 2.9-.4 7.2 1.2 9.5.8 1.1 1.7 2.4 2.9 2.4s1.6-.8 3-.8 1.8.8 3 .7c1.3 0 2.1-1.2 2.8-2.3.9-1.3 1.3-2.6 1.3-2.7 0 0-2.5-1-2.5-4zM14.1 5.8c.6-.8 1.1-1.8 1-2.8-.9 0-2 .6-2.7 1.4-.6.7-1.1 1.7-1 2.7 1 .1 2-.5 2.7-1.3z"/></svg>Pay</span>
+          <span class="pay pay--g" title="Google Pay"><b>G</b>&nbsp;Pay</span>
+          <span class="pay pay--cash" title="Plata la livrare">Ramburs</span>
         </div>
 
-        <ul class="buy__points">
-          <li>Plită din oțel de 8 mm, gata de gătit în ~20 min</li>
-          <li>Blat din lemn masiv, tratat pentru exterior</li>
-          <li>Roți cu frână — îl muți ușor pe terasă</li>
-        </ul>
+        <p class="assurances">
+          <span><svg viewBox="0 0 24 24"><path d="M3 12a9 9 0 109-9 9.5 9.5 0 00-6.5 2.7L3 8"/><path d="M3 3v5h5"/></svg> 30 zile retur gratuit</span>
+          <span><span class="flag-ro" aria-hidden="true"><i></i><i></i><i></i></span> Livrare gratuită în RO</span>
+        </p>
 
-        <div class="buy__actions">
-          <div class="qty" aria-label="Cantitate">
-            <button type="button" data-qty="-1" aria-label="Scade">−</button>
-            <input type="number" id="qty" value="1" min="1" max="10" aria-label="Cantitate">
-            <button type="button" data-qty="1" aria-label="Crește">+</button>
+        <div class="guarantee">
+          <svg viewBox="0 0 48 48" aria-hidden="true"><rect x="5" y="9" width="30" height="24" rx="2"/><path d="M11 16h18M11 21h12M11 26h8"/><circle cx="35" cy="31" r="7"/><path d="M31 37l-2 7 6-3 6 3-2-7"/></svg>
+          <div>
+            <strong>Garanție 5 ani. Fără bătăi de cap.</strong>
+            <span>Dacă ceva nu e în regulă cu structura în primii 5 ani, îl reparăm sau îl înlocuim pe cheltuiala noastră.</span>
           </div>
-          <button type="button" class="btn btn--primary btn--block" id="buy-button" data-order>Comandă acum</button>
         </div>
-        <p class="buy__stock"><span class="dot"></span> În stoc · expediere în 24–48h</p>
 
-        <div class="badges">
-          <div class="badge">
-            <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M4 21V4M4 4h10l-1.5 3L14 10H4"/></svg>
-            <div><strong>Produs în România</strong><span>Fabricat manual</span></div>
+        <!-- Tabs -->
+        <div class="tabs">
+          <div class="tabs__list" role="tablist">
+            <button role="tab" id="tab-1" aria-controls="panel-1" aria-selected="true">Recenzie expert</button>
+            <button role="tab" id="tab-2" aria-controls="panel-2" aria-selected="false" tabindex="-1">Comparație</button>
+            <button role="tab" id="tab-3" aria-controls="panel-3" aria-selected="false" tabindex="-1">Cum se folosește</button>
+            <button role="tab" id="tab-4" aria-controls="panel-4" aria-selected="false" tabindex="-1">Ce primești</button>
           </div>
-          <div class="badge">
-            <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M3 7h11v9H3zM14 10h4l3 3v3h-7"/><circle cx="7" cy="17.5" r="1.5"/><circle cx="17" cy="17.5" r="1.5"/></svg>
-            <div><strong>Livrare rapidă</strong><span>2–4 zile lucrătoare</span></div>
+
+          <div class="tabs__panel" role="tabpanel" id="panel-1" aria-labelledby="tab-1">
+            <span class="stars stars--plain" aria-label="5 din 5 stele">★★★★★</span>
+            <blockquote>„Plita din oțel ține căldura exact cum trebuie: sear perfect în centru, legume la margine. E cel mai social mod de a găti afară pe care l-am testat.”</blockquote>
+            <div class="expert">
+              <img class="avatar" src="assets/images/clienti/expert.jpg" alt="" data-initials="CR">
+              <div>
+                <p><b>Chef Radu</b> <span>12 septembrie 2026</span></p>
+                <p class="expert__role">Bucătar-șef &amp; pitmaster</p>
+              </div>
+            </div>
           </div>
-          <div class="badge">
-            <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 3l8 3v6c0 4.5-3.4 8-8 9-4.6-1-8-4.5-8-9V6z"/><path d="M8.5 12l2.5 2.5 4.5-5"/></svg>
-            <div><strong>Garanție 5 ani</strong><span>Pe structura din oțel</span></div>
+
+          <div class="tabs__panel" role="tabpanel" id="panel-2" aria-labelledby="tab-2" hidden>
+            <table class="compare">
+              <thead>
+                <tr><th></th><th class="compare__us">Bear Grills</th><th>Grătar clasic</th></tr>
+              </thead>
+              <tbody>
+                <tr><td>Toată lumea stă în jurul focului</td><td class="yes">✓</td><td class="no">✕</td></tr>
+                <tr><td>Căldură uniformă, fără flăcări</td><td class="yes">✓</td><td class="no">✕</td></tr>
+                <tr><td>Gătești ouă, pește, legume</td><td class="yes">✓</td><td class="no">✕</td></tr>
+                <tr><td>Blat pentru farfurii și pahare</td><td class="yes">✓</td><td class="no">✕</td></tr>
+                <tr><td>Oțel de 8 mm, rezistă zeci de ani</td><td class="yes">✓</td><td class="no">✕</td></tr>
+              </tbody>
+            </table>
           </div>
-          <div class="badge">
-            <svg viewBox="0 0 24 24" aria-hidden="true"><rect x="3" y="6" width="18" height="12" rx="2"/><path d="M3 10h18"/></svg>
-            <div><strong>Plata la livrare</strong><span>Sau card online</span></div>
+
+          <div class="tabs__panel" role="tabpanel" id="panel-3" aria-labelledby="tab-3" hidden>
+            <ol class="howto">
+              <li><b>Aprinde focul</b> în focarul central, cu cărbune sau lemne.</li>
+              <li><b>Așteaptă ~20 de minute</b> până se încinge plita.</li>
+              <li><b>Unge plita</b> cu puțin ulei și începe să gătești — centrul e cel mai fierbinte.</li>
+              <li><b>La final</b>, răzuiește cu spatula și lasă un strat fin de ulei.</li>
+            </ol>
+          </div>
+
+          <div class="tabs__panel" role="tabpanel" id="panel-4" aria-labelledby="tab-4" hidden>
+            <ul class="inbox">
+              <li>Grătar Bear Grills, pre-asamblat</li>
+              <li>Blat din lemn masiv, tratat pentru exterior</li>
+              <li>Spatulă din oțel inoxidabil</li>
+              <li>Inel pentru wok / ceaun</li>
+              <li>Ghid de folosire și întreținere</li>
+            </ul>
           </div>
         </div>
       </div>
     </section>
 
-    <!-- DESPRE -->
-    <section class="section" id="despre">
+    <!-- ============ DESPRE ============ -->
+    <section class="about" id="despre">
       <div class="container">
         <p class="eyebrow">Despre produs</p>
-        <h2 class="section__title">Construit pentru serile lungi de vară.</h2>
-        <p class="section__lead">Bear Grills este o masă de grătar tip plancha: focul arde în centru, plita din oțel se încinge uniform, iar blatul din lemn rămâne liber pentru farfurii și pahare. Toată lumea stă în jurul focului, nu în spatele lui.</p>
+        <h2 class="display">Nu e un grătar.<br>E locul unde se strâng <em>toți</em>.</h2>
+        <p class="about__lead">Focul arde în centru, plita din oțel se încinge uniform, iar blatul din lemn rămâne liber pentru farfurii și pahare. Nimeni nu mai stă singur la grătar — toată lumea stă în jurul focului.</p>
 
         <div class="features">
           <article class="feature">
-            <span class="feature__num">01</span>
-            <h3>Plită din oțel de 8 mm</h3>
-            <p>Căldură uniformă pe toată suprafața — mai fierbinte în centru pentru sear, mai blândă spre margini pentru legume.</p>
+            <svg viewBox="0 0 24 24"><rect x="3" y="7" width="18" height="4" rx="1"/><path d="M6 11v9M18 11v9"/></svg>
+            <h3>Plită de 8 mm</h3>
+            <p>Mai fierbinte în centru pentru sear, mai blândă spre margini pentru legume și pește.</p>
           </article>
           <article class="feature">
-            <span class="feature__num">02</span>
-            <h3>Lemn masiv tratat</h3>
-            <p>Blat generos din lemn, protejat cu ulei pentru exterior. Loc pentru ingrediente, farfurii și ustensile.</p>
+            <svg viewBox="0 0 24 24"><path d="M3 17h18M5 17V9l7-4 7 4v8"/><path d="M9 17v-4h6v4"/></svg>
+            <h3>Lemn masiv</h3>
+            <p>Blat generos din lemn tratat pentru exterior. Loc pentru ingrediente și farfurii.</p>
           </article>
           <article class="feature">
-            <span class="feature__num">03</span>
+            <svg viewBox="0 0 24 24"><path d="M12 3c1 3 4 4.5 4 8.5a4 4 0 01-8 0c0-1.6.8-2.7 1.6-3.6.2 1.4 1 2.1 1.9 2.1-.6-2.7-.3-5 .5-7z"/></svg>
             <h3>Cărbune sau lemne</h3>
-            <p>Focar central cu inel pentru wok sau ceaun. Aerisire laterală pentru un tiraj constant.</p>
+            <p>Focar central cu inel pentru wok sau ceaun și aerisire laterală pentru tiraj constant.</p>
           </article>
           <article class="feature">
-            <span class="feature__num">04</span>
+            <svg viewBox="0 0 24 24"><rect x="5" y="4" width="14" height="13" rx="1"/><circle cx="8" cy="19.5" r="1.5"/><circle cx="16" cy="19.5" r="1.5"/></svg>
             <h3>Mobil, pe roți</h3>
             <p>Patru roți robuste, două cu frână. Îl muți ușor pe terasă sau îl pui la adăpost iarna.</p>
           </article>
@@ -127,88 +329,121 @@
       </div>
     </section>
 
-    <!-- SPECIFICATII -->
-    <section class="section section--muted" id="specificatii">
+    <!-- ============ SPECIFICAȚII ============ -->
+    <section class="section" id="specificatii">
       <div class="container specs">
+        <div class="specs__media">
+          <img src="assets/images/gratar-hero.webp" alt="Grătarul Bear Grills" loading="lazy">
+          <span class="specs__dim specs__dim--w">100 cm</span>
+          <span class="specs__dim specs__dim--h">95 cm</span>
+        </div>
         <div>
           <p class="eyebrow">Specificații</p>
-          <h2 class="section__title">Detalii tehnice</h2>
-          <p class="section__lead">Tot ce trebuie să știi înainte de comandă. Ai o întrebare? Scrie-ne și îți răspundem în aceeași zi.</p>
+          <h2 class="display display--sm">Detalii tehnice</h2>
+          <dl class="spec-list">
+            <div><dt>Dimensiuni (L × l × H)</dt><dd>100 × 100 × 95 cm</dd></div>
+            <div><dt>Suprafață plită</dt><dd>70 × 60 cm</dd></div>
+            <div><dt>Grosime plită</dt><dd>8 mm, oțel carbon</dd></div>
+            <div><dt>Structură</dt><dd>Oțel 3 mm, vopsit electrostatic</dd></div>
+            <div><dt>Blat</dt><dd>Lemn masiv, tratat pentru exterior</dd></div>
+            <div><dt>Combustibil</dt><dd>Cărbune sau lemne</dd></div>
+            <div><dt>Greutate</dt><dd>~85 kg</dd></div>
+            <div><dt>Mobilitate</dt><dd>4 roți, 2 cu frână</dd></div>
+            <div><dt>Garanție</dt><dd>5 ani structură · 2 ani accesorii</dd></div>
+          </dl>
         </div>
-        <dl class="spec-list">
-          <div><dt>Dimensiuni (L × l × H)</dt><dd>100 × 100 × 95 cm</dd></div>
-          <div><dt>Suprafață plită</dt><dd>70 × 60 cm</dd></div>
-          <div><dt>Grosime plită</dt><dd>8 mm, oțel carbon</dd></div>
-          <div><dt>Structură</dt><dd>Oțel 3 mm, vopsit în câmp electrostatic</dd></div>
-          <div><dt>Blat</dt><dd>Lemn masiv, tratat pentru exterior</dd></div>
-          <div><dt>Combustibil</dt><dd>Cărbune sau lemne</dd></div>
-          <div><dt>Greutate</dt><dd>~85 kg</dd></div>
-          <div><dt>Mobilitate</dt><dd>4 roți, 2 cu frână</dd></div>
-          <div><dt>Inclus în pachet</dt><dd>Spatulă, inel wok, husă de protecție</dd></div>
-          <div><dt>Garanție</dt><dd>5 ani structură · 2 ani accesorii</dd></div>
-        </dl>
       </div>
     </section>
 
-    <!-- RECENZII -->
-    <section class="section" id="recenzii">
+    <!-- ============ RECENZII ============ -->
+    <section class="section section--warm" id="recenzii">
       <div class="container">
-        <div class="reviews__head">
+        <div class="reviews-head">
           <div>
             <p class="eyebrow">Recenzii</p>
-            <h2 class="section__title">Ce spun clienții noștri</h2>
+            <h2 class="display display--sm">Ce spun clienții</h2>
           </div>
-          <div class="score">
-            <span class="score__num">4.9</span>
-            <div>
-              <span class="stars" aria-label="5 din 5 stele">★★★★★</span>
-              <span class="score__count">din 128 recenzii</span>
+          <div class="summary">
+            <div class="summary__score">
+              <span class="summary__num">4.9</span>
+              <span class="stars stars--box" aria-label="4.9 din 5 stele"><i></i><i></i><i></i><i></i><i></i></span>
+              <span class="summary__count">din 128 recenzii</span>
             </div>
+            <ul class="summary__bars" aria-label="Distribuția notelor">
+              <li><span>5★</span><span class="bar"><i style="width:93%"></i></span><span>119</span></li>
+              <li><span>4★</span><span class="bar"><i style="width:6%"></i></span><span>8</span></li>
+              <li><span>3★</span><span class="bar"><i style="width:1%"></i></span><span>1</span></li>
+              <li><span>2★</span><span class="bar"><i style="width:0%"></i></span><span>0</span></li>
+              <li><span>1★</span><span class="bar"><i style="width:0%"></i></span><span>0</span></li>
+            </ul>
           </div>
         </div>
 
-        <!-- Pentru poze: pune fișierele în assets/images/clienti/ și schimbă src.
-             Dacă poza lipsește, se afișează automat inițialele. -->
+        <!-- Poze clienți: pune-le în assets/images/clienti/ cu numele din src. Dacă lipsesc, apar inițialele. -->
         <div class="reviews">
           <figure class="review">
-            <span class="stars" aria-label="5 din 5 stele">★★★★★</span>
-            <blockquote>„Cel mai bun lucru cumpărat pentru terasă. Plita se încinge repede și ține căldura toată seara. Toți prietenii vor să vină la noi acum.”</blockquote>
-            <figcaption>
-              <img class="avatar" src="assets/images/clienti/andrei.jpg" alt="" data-initials="AM">
-              <div><strong>Andrei M.</strong><span>Cluj-Napoca</span></div>
-            </figcaption>
+            <div class="review__top">
+              <img class="avatar avatar--lg" src="assets/images/clienti/andrei.jpg" alt="" data-initials="AM">
+              <div>
+                <strong>Andrei M.</strong>
+                <span class="verified"><svg viewBox="0 0 24 24"><path d="M6 12.5l4 4 8-9"/></svg> Cumpărător verificat · Cluj</span>
+              </div>
+            </div>
+            <span class="stars stars--plain" aria-label="5 din 5 stele">★★★★★</span>
+            <h3>Cel mai bun lucru pentru terasă</h3>
+            <blockquote>Plita se încinge repede și ține căldura toată seara. Toți prietenii vor să vină la noi acum.</blockquote>
           </figure>
           <figure class="review">
-            <span class="stars" aria-label="5 din 5 stele">★★★★★</span>
-            <blockquote>„Arată superb, finisajele sunt impecabile. A ajuns în 3 zile, bine ambalat, iar montajul a durat mai puțin de o oră.”</blockquote>
-            <figcaption>
-              <img class="avatar" src="assets/images/clienti/ioana.jpg" alt="" data-initials="IP">
-              <div><strong>Ioana P.</strong><span>București</span></div>
-            </figcaption>
+            <div class="review__top">
+              <img class="avatar avatar--lg" src="assets/images/clienti/ioana.jpg" alt="" data-initials="IP">
+              <div>
+                <strong>Ioana P.</strong>
+                <span class="verified"><svg viewBox="0 0 24 24"><path d="M6 12.5l4 4 8-9"/></svg> Cumpărător verificat · București</span>
+              </div>
+            </div>
+            <span class="stars stars--plain" aria-label="5 din 5 stele">★★★★★</span>
+            <h3>Finisaje impecabile</h3>
+            <blockquote>Arată superb. A ajuns în 3 zile, foarte bine ambalat, iar montajul a durat mai puțin de o oră.</blockquote>
           </figure>
           <figure class="review">
-            <span class="stars" aria-label="5 din 5 stele">★★★★★</span>
-            <blockquote>„Am renunțat la grătarul clasic. Pe plită fac de la mici și legume până la ouă dimineața. Calitate românească adevărată.”</blockquote>
-            <figcaption>
-              <img class="avatar" src="assets/images/clienti/mihai.jpg" alt="" data-initials="MD">
-              <div><strong>Mihai D.</strong><span>Brașov</span></div>
-            </figcaption>
+            <div class="review__top">
+              <img class="avatar avatar--lg" src="assets/images/clienti/mihai.jpg" alt="" data-initials="MD">
+              <div>
+                <strong>Mihai D.</strong>
+                <span class="verified"><svg viewBox="0 0 24 24"><path d="M6 12.5l4 4 8-9"/></svg> Cumpărător verificat · Brașov</span>
+              </div>
+            </div>
+            <span class="stars stars--plain" aria-label="5 din 5 stele">★★★★★</span>
+            <h3>Am renunțat la grătarul clasic</h3>
+            <blockquote>Pe plită fac de la mici și legume până la ouă dimineața. Calitate românească adevărată.</blockquote>
+          </figure>
+          <figure class="review">
+            <div class="review__top">
+              <img class="avatar avatar--lg" src="assets/images/clienti/elena.jpg" alt="" data-initials="ES">
+              <div>
+                <strong>Elena S.</strong>
+                <span class="verified"><svg viewBox="0 0 24 24"><path d="M6 12.5l4 4 8-9"/></svg> Cumpărător verificat · Iași</span>
+              </div>
+            </div>
+            <span class="stars stars--plain" aria-label="5 din 5 stele">★★★★★</span>
+            <h3>Centrul fiecărei petreceri</h3>
+            <blockquote>Nu mai stă nimeni singur la grătar. Toată lumea gătește și povestește în jurul lui. Merită fiecare leu.</blockquote>
           </figure>
         </div>
       </div>
     </section>
 
-    <!-- FAQ -->
-    <section class="section section--muted" id="intrebari">
+    <!-- ============ FAQ ============ -->
+    <section class="section" id="intrebari">
       <div class="container faq">
         <div>
           <p class="eyebrow">Întrebări frecvente</p>
-          <h2 class="section__title">Bine de știut</h2>
+          <h2 class="display display--sm">Bine de știut</h2>
         </div>
         <div class="faq__list">
-          <details>
+          <details open>
             <summary>Cât durează livrarea?</summary>
-            <p>Expediem în 24–48h de la confirmarea comenzii. Livrarea prin curier durează 2–4 zile lucrătoare, oriunde în România.</p>
+            <p>Expediem în 24h de la confirmarea comenzii. Livrarea prin curier durează 2–4 zile lucrătoare, oriunde în România.</p>
           </details>
           <details>
             <summary>Vine montat?</summary>
@@ -219,10 +454,24 @@
             <p>După fiecare folosire, răzuiești resturile cu spatula și ungi plita cu puțin ulei. Stratul de ulei o protejează de rugină.</p>
           </details>
           <details>
+            <summary>Pot plăti la livrare?</summary>
+            <p>Da. Poți plăti ramburs la curier sau online cu cardul, Apple Pay ori Google Pay.</p>
+          </details>
+          <details>
             <summary>Pot returna produsul?</summary>
-            <p>Da, ai 14 zile pentru retur, conform legislației în vigoare. Produsul trebuie să fie nefolosit și în ambalajul original.</p>
+            <p>Da, ai 30 de zile pentru retur gratuit. Produsul trebuie să fie nefolosit și în ambalajul original.</p>
           </details>
         </div>
+      </div>
+    </section>
+
+    <!-- ============ CTA FINAL ============ -->
+    <section class="final">
+      <img src="assets/images/gratar-hero.webp" alt="" class="final__bg" loading="lazy">
+      <div class="container final__inner">
+        <h2 class="display">Adu-i pe toți<br>în jurul focului.</h2>
+        <p>Produs în România · Livrare în 2–4 zile · Garanție 5 ani</p>
+        <a href="#comanda" class="buy-btn buy-btn--gold">Comandă acum — <b data-price-now>4.990 lei</b></a>
       </div>
     </section>
 
@@ -230,21 +479,23 @@
 
   <footer class="footer">
     <div class="container footer__inner">
-      <span class="logo">BEAR<span>GRILLS</span></span>
-      <p>© 2026 Bear Grills · Produs în România</p>
+      <span class="logo logo--footer"><img src="assets/images/logo-bear.svg" alt="" width="26" height="26"><span>BEAR<b>GRILLS</b></span></span>
+      <p>© 2026 Bear Grills · Produs cu mândrie în România</p>
     </div>
   </footer>
 
-  <!-- STICKY CTA -->
+  <!-- ============ STICKY CTA ============ -->
   <div class="sticky-cta" id="sticky-cta" aria-hidden="true">
     <div class="container sticky-cta__inner">
       <img src="assets/images/gratar-hero.webp" alt="" class="sticky-cta__img">
       <div class="sticky-cta__info">
-        <strong>Grătar Bear Grills</strong>
-        <span><span class="stars">★★★★★</span> 4.9/5</span>
+        <strong data-bundle-name>Grătar Bear Grills</strong>
+        <span><span class="stars stars--plain">★★★★★</span> 4.9 · 128 recenzii</span>
       </div>
-      <span class="sticky-cta__price">4.990 lei</span>
-      <button type="button" class="btn btn--primary" data-order tabindex="-1">Comandă acum</button>
+      <button type="button" class="buy-btn buy-btn--compact" data-order tabindex="-1">
+        <span>Comandă acum — <b data-price-now>4.990 lei</b></span>
+        <s data-price-old>5.790 lei</s>
+      </button>
     </div>
   </div>
 
