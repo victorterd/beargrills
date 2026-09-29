@@ -1,0 +1,255 @@
+<!doctype html>
+<html lang="ro">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Grătar Bear Grills — Masă de grătar cu plită din oțel</title>
+  <meta name="description" content="Grătar Bear Grills: masă de grătar cu plită din oțel și blat din lemn masiv. Produs în România, livrare rapidă în toată țara.">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+
+  <div class="announcement">Livrare gratuită în toată România · Plata la livrare</div>
+
+  <header class="header">
+    <div class="container header__inner">
+      <a href="#" class="logo" aria-label="Bear Grills">BEAR<span>GRILLS</span></a>
+      <nav class="nav">
+        <a href="#despre">Despre</a>
+        <a href="#specificatii">Specificații</a>
+        <a href="#recenzii">Recenzii</a>
+        <a href="#intrebari">Întrebări</a>
+      </nav>
+      <a href="#comanda" class="header__cta">Comandă</a>
+    </div>
+  </header>
+
+  <main>
+
+    <!-- HERO -->
+    <section class="hero container">
+      <div class="gallery">
+        <div class="gallery__main">
+          <img id="gallery-main" src="assets/images/gratar-hero.webp" alt="Grătarul Bear Grills pe o terasă, cu blat din lemn și plită din oțel" width="1672" height="941" fetchpriority="high">
+        </div>
+        <!-- Adaugă aici mai multe poze; primul thumb e cel activ -->
+        <div class="gallery__thumbs">
+          <button class="thumb is-active" data-src="assets/images/gratar-hero.webp" aria-label="Imaginea 1">
+            <img src="assets/images/gratar-hero.webp" alt="">
+          </button>
+        </div>
+      </div>
+
+      <div class="buy" id="comanda">
+        <a href="#recenzii" class="rating">
+          <span class="stars" aria-hidden="true">★★★★★</span>
+          <span><strong>4.9/5</strong> · 128 recenzii</span>
+        </a>
+
+        <h1 class="buy__title">Grătar Bear Grills</h1>
+        <p class="buy__subtitle">Masă de grătar cu plită din oțel și blat din lemn masiv. Gătești, servești și stai la masă — în același loc.</p>
+
+        <div class="price">
+          <span class="price__now">4.990 lei</span>
+          <span class="price__old">5.790 lei</span>
+          <span class="price__tag">-14%</span>
+        </div>
+
+        <ul class="buy__points">
+          <li>Plită din oțel de 8 mm, gata de gătit în ~20 min</li>
+          <li>Blat din lemn masiv, tratat pentru exterior</li>
+          <li>Roți cu frână — îl muți ușor pe terasă</li>
+        </ul>
+
+        <div class="buy__actions">
+          <div class="qty" aria-label="Cantitate">
+            <button type="button" data-qty="-1" aria-label="Scade">−</button>
+            <input type="number" id="qty" value="1" min="1" max="10" aria-label="Cantitate">
+            <button type="button" data-qty="1" aria-label="Crește">+</button>
+          </div>
+          <button type="button" class="btn btn--primary btn--block" id="buy-button" data-order>Comandă acum</button>
+        </div>
+        <p class="buy__stock"><span class="dot"></span> În stoc · expediere în 24–48h</p>
+
+        <div class="badges">
+          <div class="badge">
+            <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M4 21V4M4 4h10l-1.5 3L14 10H4"/></svg>
+            <div><strong>Produs în România</strong><span>Fabricat manual</span></div>
+          </div>
+          <div class="badge">
+            <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M3 7h11v9H3zM14 10h4l3 3v3h-7"/><circle cx="7" cy="17.5" r="1.5"/><circle cx="17" cy="17.5" r="1.5"/></svg>
+            <div><strong>Livrare rapidă</strong><span>2–4 zile lucrătoare</span></div>
+          </div>
+          <div class="badge">
+            <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 3l8 3v6c0 4.5-3.4 8-8 9-4.6-1-8-4.5-8-9V6z"/><path d="M8.5 12l2.5 2.5 4.5-5"/></svg>
+            <div><strong>Garanție 5 ani</strong><span>Pe structura din oțel</span></div>
+          </div>
+          <div class="badge">
+            <svg viewBox="0 0 24 24" aria-hidden="true"><rect x="3" y="6" width="18" height="12" rx="2"/><path d="M3 10h18"/></svg>
+            <div><strong>Plata la livrare</strong><span>Sau card online</span></div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- DESPRE -->
+    <section class="section" id="despre">
+      <div class="container">
+        <p class="eyebrow">Despre produs</p>
+        <h2 class="section__title">Construit pentru serile lungi de vară.</h2>
+        <p class="section__lead">Bear Grills este o masă de grătar tip plancha: focul arde în centru, plita din oțel se încinge uniform, iar blatul din lemn rămâne liber pentru farfurii și pahare. Toată lumea stă în jurul focului, nu în spatele lui.</p>
+
+        <div class="features">
+          <article class="feature">
+            <span class="feature__num">01</span>
+            <h3>Plită din oțel de 8 mm</h3>
+            <p>Căldură uniformă pe toată suprafața — mai fierbinte în centru pentru sear, mai blândă spre margini pentru legume.</p>
+          </article>
+          <article class="feature">
+            <span class="feature__num">02</span>
+            <h3>Lemn masiv tratat</h3>
+            <p>Blat generos din lemn, protejat cu ulei pentru exterior. Loc pentru ingrediente, farfurii și ustensile.</p>
+          </article>
+          <article class="feature">
+            <span class="feature__num">03</span>
+            <h3>Cărbune sau lemne</h3>
+            <p>Focar central cu inel pentru wok sau ceaun. Aerisire laterală pentru un tiraj constant.</p>
+          </article>
+          <article class="feature">
+            <span class="feature__num">04</span>
+            <h3>Mobil, pe roți</h3>
+            <p>Patru roți robuste, două cu frână. Îl muți ușor pe terasă sau îl pui la adăpost iarna.</p>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <!-- SPECIFICATII -->
+    <section class="section section--muted" id="specificatii">
+      <div class="container specs">
+        <div>
+          <p class="eyebrow">Specificații</p>
+          <h2 class="section__title">Detalii tehnice</h2>
+          <p class="section__lead">Tot ce trebuie să știi înainte de comandă. Ai o întrebare? Scrie-ne și îți răspundem în aceeași zi.</p>
+        </div>
+        <dl class="spec-list">
+          <div><dt>Dimensiuni (L × l × H)</dt><dd>100 × 100 × 95 cm</dd></div>
+          <div><dt>Suprafață plită</dt><dd>70 × 60 cm</dd></div>
+          <div><dt>Grosime plită</dt><dd>8 mm, oțel carbon</dd></div>
+          <div><dt>Structură</dt><dd>Oțel 3 mm, vopsit în câmp electrostatic</dd></div>
+          <div><dt>Blat</dt><dd>Lemn masiv, tratat pentru exterior</dd></div>
+          <div><dt>Combustibil</dt><dd>Cărbune sau lemne</dd></div>
+          <div><dt>Greutate</dt><dd>~85 kg</dd></div>
+          <div><dt>Mobilitate</dt><dd>4 roți, 2 cu frână</dd></div>
+          <div><dt>Inclus în pachet</dt><dd>Spatulă, inel wok, husă de protecție</dd></div>
+          <div><dt>Garanție</dt><dd>5 ani structură · 2 ani accesorii</dd></div>
+        </dl>
+      </div>
+    </section>
+
+    <!-- RECENZII -->
+    <section class="section" id="recenzii">
+      <div class="container">
+        <div class="reviews__head">
+          <div>
+            <p class="eyebrow">Recenzii</p>
+            <h2 class="section__title">Ce spun clienții noștri</h2>
+          </div>
+          <div class="score">
+            <span class="score__num">4.9</span>
+            <div>
+              <span class="stars" aria-label="5 din 5 stele">★★★★★</span>
+              <span class="score__count">din 128 recenzii</span>
+            </div>
+          </div>
+        </div>
+
+        <!-- Pentru poze: pune fișierele în assets/images/clienti/ și schimbă src.
+             Dacă poza lipsește, se afișează automat inițialele. -->
+        <div class="reviews">
+          <figure class="review">
+            <span class="stars" aria-label="5 din 5 stele">★★★★★</span>
+            <blockquote>„Cel mai bun lucru cumpărat pentru terasă. Plita se încinge repede și ține căldura toată seara. Toți prietenii vor să vină la noi acum.”</blockquote>
+            <figcaption>
+              <img class="avatar" src="assets/images/clienti/andrei.jpg" alt="" data-initials="AM">
+              <div><strong>Andrei M.</strong><span>Cluj-Napoca</span></div>
+            </figcaption>
+          </figure>
+          <figure class="review">
+            <span class="stars" aria-label="5 din 5 stele">★★★★★</span>
+            <blockquote>„Arată superb, finisajele sunt impecabile. A ajuns în 3 zile, bine ambalat, iar montajul a durat mai puțin de o oră.”</blockquote>
+            <figcaption>
+              <img class="avatar" src="assets/images/clienti/ioana.jpg" alt="" data-initials="IP">
+              <div><strong>Ioana P.</strong><span>București</span></div>
+            </figcaption>
+          </figure>
+          <figure class="review">
+            <span class="stars" aria-label="5 din 5 stele">★★★★★</span>
+            <blockquote>„Am renunțat la grătarul clasic. Pe plită fac de la mici și legume până la ouă dimineața. Calitate românească adevărată.”</blockquote>
+            <figcaption>
+              <img class="avatar" src="assets/images/clienti/mihai.jpg" alt="" data-initials="MD">
+              <div><strong>Mihai D.</strong><span>Brașov</span></div>
+            </figcaption>
+          </figure>
+        </div>
+      </div>
+    </section>
+
+    <!-- FAQ -->
+    <section class="section section--muted" id="intrebari">
+      <div class="container faq">
+        <div>
+          <p class="eyebrow">Întrebări frecvente</p>
+          <h2 class="section__title">Bine de știut</h2>
+        </div>
+        <div class="faq__list">
+          <details>
+            <summary>Cât durează livrarea?</summary>
+            <p>Expediem în 24–48h de la confirmarea comenzii. Livrarea prin curier durează 2–4 zile lucrătoare, oriunde în România.</p>
+          </details>
+          <details>
+            <summary>Vine montat?</summary>
+            <p>Grătarul vine pre-asamblat. Montezi doar blatul și roțile — durează sub o oră, cu instrucțiunile incluse.</p>
+          </details>
+          <details>
+            <summary>Cum întrețin plita?</summary>
+            <p>După fiecare folosire, răzuiești resturile cu spatula și ungi plita cu puțin ulei. Stratul de ulei o protejează de rugină.</p>
+          </details>
+          <details>
+            <summary>Pot returna produsul?</summary>
+            <p>Da, ai 14 zile pentru retur, conform legislației în vigoare. Produsul trebuie să fie nefolosit și în ambalajul original.</p>
+          </details>
+        </div>
+      </div>
+    </section>
+
+  </main>
+
+  <footer class="footer">
+    <div class="container footer__inner">
+      <span class="logo">BEAR<span>GRILLS</span></span>
+      <p>© 2026 Bear Grills · Produs în România</p>
+    </div>
+  </footer>
+
+  <!-- STICKY CTA -->
+  <div class="sticky-cta" id="sticky-cta" aria-hidden="true">
+    <div class="container sticky-cta__inner">
+      <img src="assets/images/gratar-hero.webp" alt="" class="sticky-cta__img">
+      <div class="sticky-cta__info">
+        <strong>Grătar Bear Grills</strong>
+        <span><span class="stars">★★★★★</span> 4.9/5</span>
+      </div>
+      <span class="sticky-cta__price">4.990 lei</span>
+      <button type="button" class="btn btn--primary" data-order tabindex="-1">Comandă acum</button>
+    </div>
+  </div>
+
+  <div class="toast" id="toast" role="status" aria-live="polite"></div>
+
+  <script src="js/main.js"></script>
+</body>
+</html>
